@@ -18,8 +18,8 @@ angular.module('app')
       const recipeId = $location.url().split(':')[1];
       $scope.edit=true;
       dataService.editRecipe(function(response) { 
-          $scope.recipe = response.data;
-          $scope.previousState = response.data;
+          $scope.recipe = angular.copy(response.data);
+          $scope.previousState = angular.copy(response.data);
       },recipeId);    
     }
   	
@@ -29,7 +29,7 @@ angular.module('app')
     });
 
     $scope.cancelSave = function(){
-      $scope.recipe = $scope.previousState;
+      $scope.recipe = angular.copy($scope.previousState);
     }
     $scope.saveRecipe = function(recipe){
       if ($scope.edit){
@@ -38,6 +38,11 @@ angular.module('app')
               console.log(response.data);
               console.log('succeed');
         },recipe._id,recipe); 
+      }
+      else{
+         dataService.addRecipe(function(response) { 
+              $scope.recipe = response.data;
+        },recipe);        
       }
     }
 

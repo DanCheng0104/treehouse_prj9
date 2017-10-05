@@ -25,6 +25,10 @@ angular.module('app')
     $http.put(`/api/recipes/${recipeId}`,recipe)
     .then(callback)
   };
+  this.addRecipe = function(callback,recipe){
+    $http.post('/api/recipes/',recipe)
+    .then(callback)
+  };
   this.allFoodItems = function(callback){
     $http.get('/api/fooditems')
     .then(callback)
