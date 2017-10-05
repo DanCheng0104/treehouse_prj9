@@ -14,6 +14,13 @@ angular.module('app')
   dataService.allRecipes(function(response) { 
       $scope.recipes = response.data;
   }); 
+
+  $scope.removeRecipe = function(recipe,$index){
+    dataService.deleteRecipe(function(response) { 
+          console.log(response.data);
+    },recipe._id); 
+    $scope.recipes.splice($index, 1);
+  }
   // $scope.deleteTodo = function(todo, $index) {
   //   dataService.deleteTodo(todo);
   //   $scope.todos.splice($index, 1);

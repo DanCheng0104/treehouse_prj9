@@ -20,10 +20,19 @@ angular.module('app')
     $http.get(`/api/recipes/${recipeId}`)
     .then(callback)
   };
+
+  this.updateRecipe = function(callback,recipeId,recipe){
+    $http.put(`/api/recipes/${recipeId}`,recipe)
+    .then(callback)
+  };
   this.allFoodItems = function(callback){
     $http.get('/api/fooditems')
     .then(callback)
   };  
+  this.deleteRecipe = function(callback,recipeId){
+    $http.delete(`/api/recipes/${recipeId}`)
+    .then(callback)
+  };
   // this.deleteTodo = function(todo) {
   //   console.log("The " + todo.name + " todo has been deleted!")
   //   // other logic
