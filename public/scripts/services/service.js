@@ -15,6 +15,15 @@ angular.module('app')
     $http.get('/api/recipes?category={category}')
     .then(callback)
   }; 
+
+  this.editRecipe = function(callback,recipeId){
+    $http.get(`/api/recipes/${recipeId}`)
+    .then(callback)
+  };
+  this.allFoodItems = function(callback){
+    $http.get('/api/fooditems')
+    .then(callback)
+  };  
   // this.deleteTodo = function(todo) {
   //   console.log("The " + todo.name + " todo has been deleted!")
   //   // other logic

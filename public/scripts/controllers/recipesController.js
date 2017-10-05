@@ -8,14 +8,12 @@ angular.module('app')
   // $scope.helloWorld = dataService.helloWorld;
   
   dataService.getCategories(function(response) { 
-      console.log(response.data);  
       $scope.categories = response.data;
-    });
+  });
  
-   dataService.allRecipes(function(response) { 
-      console.log(response.data);  
+  dataService.allRecipes(function(response) { 
       $scope.recipes = response.data;
-    }); 
+  }); 
   // $scope.deleteTodo = function(todo, $index) {
   //   dataService.deleteTodo(todo);
   //   $scope.todos.splice($index, 1);
