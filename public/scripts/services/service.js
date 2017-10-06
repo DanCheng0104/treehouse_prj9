@@ -2,7 +2,7 @@
 
 angular.module('app')
 .service('dataService', function($http) {
-
+  
   this.getCategories = function(callback){
     $http.get('/api/categories')
     .then(callback)
@@ -37,14 +37,5 @@ angular.module('app')
     $http.delete(`/api/recipes/${recipeId}`)
     .then(callback)
   };
-  // this.deleteTodo = function(todo) {
-  //   console.log("The " + todo.name + " todo has been deleted!")
-  //   // other logic
-  // };
-  
-  // this.saveTodos = function(todos) {
-  //   console.log(todos.length + " todos have been saved!");
-  //   // other logic...
-  // };
   
 });
